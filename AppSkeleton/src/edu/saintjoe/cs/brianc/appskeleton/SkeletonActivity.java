@@ -15,7 +15,7 @@ import com.google.devtools.simple.runtime.components.android.Button;
 import com.google.devtools.simple.runtime.components.android.Form;
 import com.google.devtools.simple.runtime.components.android.Label;
 import com.google.devtools.simple.runtime.components.android.HorizontalArrangement;
-
+import com.google.devtools.simple.runtime.components.android.TextBox;
 import com.google.devtools.simple.runtime.events.EventDispatcher;
 
 // This is the only class file for our app
@@ -32,14 +32,21 @@ public class SkeletonActivity extends Form implements HandlesEventDispatching {
 	private HorizontalArrangement line1;
 	private HorizontalArrangement line2;
 
-	// Next our two components
-	private Button dumbButton;
-	private Label resultLabel;
-
+	// Next our three components
+	private Button retrieveButton;
+	private Button saveButton;
+	private TextBox inputBox;
+	
+	// variable to hold our saved value
+	private int savedValue;
+	private String tempstring;
+	
+	private Label resultsLabel;
+	
  // Java Bridger apps all use $define() in place of main()
  void $define() {
  	
- 	// Code in this block is equivalent to the "Designer" part of App Inventor
+ 	// Code in this blocdumbk is equivalent to the "Designer" part of App Inventor
     
 	 // "this" is an Activity object, or the "main screen"
      this.BackgroundColor(COLOR_WHITE);
@@ -49,7 +56,10 @@ public class SkeletonActivity extends Form implements HandlesEventDispatching {
      line2 = new HorizontalArrangement(this);
      
      // Now create the user interface
-     dumbButton = new Button(line1,"Empujeme");   
+     saveButton = new Button(line1,"Save");  
+     retrieveButton = new Button(line1,"Retrieve");
+     inputBox = new TextBox(line2);
+     iputBox.Numbersonly(true);
      resultLabel = new Label(line2,"");
      
      
